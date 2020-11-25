@@ -26,7 +26,7 @@ npm i # install all the dependencies with NPM
 2. You should run the application with this command (into project folder):
 
 ```bash
-npm run serve # this will run the application into a local host (e.g. http://localhost:3000)
+npm run dev # this will run the application into a local host (e.g. http://localhost:3000)
 ```
 3. Open the URL with your navigator.
 
