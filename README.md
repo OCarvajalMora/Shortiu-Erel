@@ -10,7 +10,7 @@ This is a simple application built with [Express](https://expressjs.com/), [Mong
 git clone https://github.com/OCarvajalMora/Shortiu-Erel.git
 ```
 
-2) Then, you have to install all the project dependencies git NPM running this commands:
+2) Then, you have to install all the project dependencies with NPM, running this commands:
 ```bash
 cd shortiu-erel # change directory to the project folder
 npm i # install all the dependencies with NPM
@@ -22,7 +22,7 @@ npm i # install all the dependencies with NPM
 
 ## Usage
 
-1. First, you have to check if you machine is running Mongo.
+1. First, you have to check if your machine is running Mongo.
 2. You should run the application with this command (into project folder):
 
 ```bash
