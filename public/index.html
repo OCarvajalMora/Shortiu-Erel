@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShortiuErel - A simple URL shortener built with Express and Mongo DB</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+    <!-- Boostwatch -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/pulse/bootstrap.min.css" integrity="sha384-L7+YG8QLqGvxQGffJ6utDKFwmGwtLcCjtwvonVZR/Ba2VzhpMwBz51GaXnUsuYbj" crossorigin="anonymous">
+</head>
+<body>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4">Hello, world!</h1>
+            <p class="lead"><span class="font-weight-bold">ShortiuErel</span> is a simple application built with <a class="font-weight-bold" href="https://expressjs.com/es/" target="_blank">Express</a>, <a class="font-weight-bold" href="https://www.mongodb.com/" target="_blank">Mongo DB</a> and a little of <a href="https://vuejs.org/" class="font-weight-bold" target="_blank">Vue JS</a> to shorten URLs. Try it!</p>
+        </div>
+    </div>
+
+    <div id="app">
+        <div class="container py-2">
+            <div class="row" v-if="error">
+                <div class="col">
+                    <div class="alert alert-danger" role="alert">
+                        <strong>Ooops!</strong> {{ errorMessage }}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <form @submit.prevent="createUrl()" class="form form-row" autocomplete="off">
+                        <div class="form-group col-sm-12 col-md-6">
+                            <label for="url"><sup class="text-danger">*</sup> URL:</label>
+                            <input type="url" id="url" v-model="url" class="form-control form-control-lg" placeholder="Enter here the URL you want to shorten" required>
+                        </div>
+                        <div class="form-group col-sm-12 col-md-6" v-bind:class="{ 'has-danger': error }">
+                            <label for="slug">Slug:</label>
+                            <input type="text" id="slug" v-model="slug" class="form-control form-control-lg" v-bind:class="{ 'is-invalid': error }" min="5" max="15" placeholder="(Optional) Enter a friendly URL you want to use" :disabled="newUrl">
+                            <div class="invalid-feedback" v-if="error">Please, try with another slug</div>
+                        </div>
+                        <div class="form-group col-sm-12 mt-3">
+                            <button type="submit" class="btn btn-primary shadow" v-if="!newUrl || url !== newUrl">Shorten</button>
+                            <button type="button" class="btn btn-info shadow" v-if="newUrl && url == newUrl" @click="copyNewUrl()" :disabled="urlCopied">{{ urlCopied ? 'Copied!' : 'Copy'}}</button>
+                            <button type="button" class="btn btn-link" @click="setDefault()" v-if="urlCopied">Short another URL</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="fixed-bottom bg-dark py-3">
+        <div class="row">
+            <div class="col">
+                <p class="text-center text-light">Made with &#10084; &nbsp; by OCM. See my others useful repositories <a class="text-muted font-weight-bold" href="https://github.com/OCarvajalMora?tab=repositories">here</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Vue JS -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script src="./js/app.js"></script>
+</body>
+</html>
