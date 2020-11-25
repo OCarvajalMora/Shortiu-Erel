@@ -37,3 +37,6 @@ Please make sure to update tests as appropriate.
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
+
+## Questions?
+You are welcome to send me an email to [os.carvajalmora@gmail.com](mailto:os.carvajalmora@gmail.com)
